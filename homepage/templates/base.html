@@ -81,7 +81,7 @@
                 </li>
 
                 <li class="bottomleft">
-                    <a href="#UserSubmenu" data-toggle="collapse" class="dropdown-toggle sidebar-text right-arrow sidebar-button">{{ request.user.username }}</a>
+                    <a href="#UserSubmenu" data-toggle="collapse" class="dropdown-toggle sidebar-text right-arrow sidebar-button">{% if request.user.get_full_name %}{{ request.user.get_full_name }}{% else %}{{ request.user.username }}{% endif %}</a>
                     <ul class="collapse list-unstyled" id="UserSubmenu">
                         {% if request.user.is_superuser %}
                             <li> <a class="sidebar-text sidebar-subitem sidebar-button" href="{% url 'admin:index' %}">Admin Page</a> </li>
@@ -115,6 +115,11 @@
                         {% endfor %}
                     {% endif %}
                 
+    {% else %}
+        <div style="padding:20px; text-align:right;">
+            <a class="btn btn-outline-light" href="{% url 'login' %}">Login</a>
+            <a class="btn btn-outline-light ml-2" href="{% url 'register' %}">Register</a>
+        </div>
     {% endif %} 
 
                     <div class="container">

@@ -2,9 +2,9 @@ from django.shortcuts import render
 from django.views.generic import View, TemplateView
 from inventory.models import Stock
 from transactions.models import SaleBill, PurchaseBill
-from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import FormView
 from django.contrib import messages
+from .forms import RegisterForm
 
 
 class HomeView(View):
@@ -32,7 +32,7 @@ class AboutView(TemplateView):
 
 class RegisterView(FormView):
     template_name = 'register.html'
-    form_class = UserCreationForm
+    form_class = RegisterForm
     success_url = '/login'
 
     def get_context_data(self, **kwargs):
