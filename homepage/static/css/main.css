@@ -20,33 +20,25 @@ html {
   font-size: 14px; /* decreased base font size by ~2px (from 16px to 14px) */
 }
 
-body,
 html {
   height: 100%;
-  background-color: #ffffff; /* site background set to white */
+}
+
+body,
+html {
   color: #222222; /* default text color for legibility on white background */
 }
 
 body {
-  background-image: url('https://images.unsplash.com/photo-1764046155497-ad7e50737ffa?w=1200&h=600&fit=crop');
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.93)),
+    url('https://images.unsplash.com/photo-1764046155497-ad7e50737ffa?w=1200&h=600&fit=crop');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-  z-index: 0;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.92);
-  z-index: -1;
-  pointer-events: none;
+  background-color: #ffffff;
+  min-height: 100vh;
 }
 
 .form-group{
