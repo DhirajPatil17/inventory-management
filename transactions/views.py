@@ -142,44 +142,44 @@ class PurchaseCreateView(View):
         formset = PurchaseItemFormset(request.POST)                             # recieves a post method for the formset
         supplierobj = get_object_or_404(Supplier, pk=pk)                        # gets the supplier object
         if formset.is_valid():
-            # saves bill
+            # create and save a PurchaseBill linked to this supplier
             try:
-                billobj = form.save(commit=False)
+                billobj = PurchaseBill(supplier=supplierobj)
                 billobj.save()
 
             except Exception as exc:
-                print('Exception error! ',exc)
+                print('Exception error! ', exc)
                 context = {
-                    'form'      : form,
-                    'formset'   : formset,
+                    'formset': formset,
+                    'supplier': supplierobj,
                 }
                 return render(request, self.template_name, context)
-            
+
             try:
-                # create bill details object
-                billdetailsobj = SaleBillDetails(billno=billobj)
+                # create purchase bill details object
+                billdetailsobj = PurchaseBillDetails(billno=billobj)
                 billdetailsobj.save()
 
             except Exception as exc:
-                print('Exception error! ',exc)
+                print('Exception error! ', exc)
                 # Removing purchase transaction to keep transaction data clean
                 billobj.delete()
                 context = {
-                    'form'      : form,
-                    'formset'   : formset,
+                    'formset': formset,
+                    'supplier': supplierobj,
                 }
                 return render(request, self.template_name, context)
 
-            for form in formset:                                                # for loop to save each individual form as its own object
+            for form in formset:  # for loop to save each individual form as its own object
                 # false saves the item and links bill to the item
                 billitem = form.save(commit=False)
-                billitem.billno = billobj                                       # links the bill object to the items
+                billitem.billno = billobj  # links the bill object to the items
                 # gets the stock item
-                stock = get_object_or_404(Stock, name=billitem.stock.name)       # gets the item
+                stock = get_object_or_404(Stock, name=billitem.stock.name)  # gets the item
                 # calculates the total price
                 billitem.totalprice = billitem.perprice * billitem.quantity
                 # updates quantity in stock db
-                stock.quantity += billitem.quantity                             # updates quantity
+                stock.quantity += billitem.quantity  # updates quantity for purchase
                 billdetailsobj.total += billitem.totalprice
                 # saves bill item and stock
                 stock.save()

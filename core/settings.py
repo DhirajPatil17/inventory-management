@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     'widget_tweaks',                            # uses 'django-widget-tweaks' app
     'crispy_forms',                             # uses 'django-crispy-forms' app
+    'crispy_bootstrap4',                        # uses 'crispy-bootstrap4' template pack
     'login_required',                           # uses 'django-login-required-middleware' app
 ]
 
@@ -129,7 +130,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'                     # bootstrap template crispy-form uses
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LOGIN_REDIRECT_URL = 'home'                             # sets the login redirect to the 'home' page after login
 
@@ -139,4 +141,5 @@ LOGIN_REQUIRED_IGNORE_VIEW_NAMES = [                    # urls ignored by the lo
     'login',
     'logout',
     'about',
+    'register',
 ]

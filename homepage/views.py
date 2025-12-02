@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.views.generic import View, TemplateView
 from inventory.models import Stock
 from transactions.models import SaleBill, PurchaseBill
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.edit import FormView
+from django.contrib import messages
 
 
 class HomeView(View):
@@ -25,3 +28,20 @@ class HomeView(View):
 
 class AboutView(TemplateView):
     template_name = "about.html"
+
+
+class RegisterView(FormView):
+    template_name = 'register.html'
+    form_class = UserCreationForm
+    success_url = '/login'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Register'
+        context['savebtn'] = 'Create Account'
+        return context
+
+    def form_valid(self, form):
+        user = form.save()
+        messages.success(self.request, 'Account created successfully. Please log in.')
+        return super().form_valid(form)

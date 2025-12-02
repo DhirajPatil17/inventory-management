@@ -1,0 +1,60 @@
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/bootstrap.min.css' %}">
+
+    <!-- Main CSS, then Sidebar CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sidebar.css' %}">    
+    
+    <title>Invi - Register</title>
+
+</head>
+
+<body>
+
+<div class="align-middle" style="color: #ea2088; font-style: bold; font-size: 3rem;">Invi</div>
+<div class="align-middle" style="color: #fff">Create a new account</div>
+<br><br><br>
+
+<div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+
+            <div class="content-section">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <div class="align-middle"><legend class="border-bottom mb-4">Create Account</legend></div>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <div class="align-middle"> 
+                            <button class="ghost-pink" type="submit">Create Account</button>         
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="align-middle"> <a href="{% url 'about' %}">About</a> </div>
+
+    </div>
+</div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'bootstrap/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'bootstrap/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>
