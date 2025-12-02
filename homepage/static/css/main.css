@@ -16,23 +16,50 @@
 }
 
 
+html {
+  font-size: 14px; /* decreased base font size by ~2px (from 16px to 14px) */
+}
+
 body,
 html {
   height: 100%;
-  background-color: #000000;
+  background-color: #ffffff; /* site background set to white */
+  color: #222222; /* default text color for legibility on white background */
+}
+
+body {
+  background-image: url('https://images.unsplash.com/photo-1764046155497-ad7e50737ffa?w=1200&h=600&fit=crop');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 0;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .form-group{
-  color:white;
+  color: #222222;
 }
 
 label{
-  color: white;
+  color: #222222;
   font-size: 2rem;
 }
 
-.fal{               /* Add any text to turn white */
-  color:white;
+.fal{               /* Add any text to turn white (now dark for white BG) */
+  color: #222222;
 }
 
 .breadcrumb{
@@ -41,11 +68,11 @@ label{
 }
 
 p{
-  color:white;   /* For About */
+  color: #222222;   /* For About */
 }
 
 a{
-  color:#FF9DF0;
+  color:#ea2088;
 }
 
 ol li a{
@@ -53,7 +80,7 @@ ol li a{
 }
 
 ol,li,a:hover{
-  color:white ;
+  color:#ea2088 ;
 }
 
 .navbar-collapse > .navbar-nav { 
@@ -116,7 +143,7 @@ ol,li,a:hover{
 
 
 .table-css{
-  color:#ffffff;
+  color:#222222;
 }
 
 .btn-primary{
@@ -130,7 +157,7 @@ ol,li,a:hover{
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #ffffff;
+  color: #222222;
 }
 
 ul {
@@ -184,7 +211,7 @@ ul {
 .content-section {
   background: transparent;
   box-shadow: 0 4px 10px #ea2088;
-  color:white;
+  color: #222222;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
