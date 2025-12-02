@@ -17,7 +17,7 @@
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #4F102B;
+    background: rgba(79, 16, 43, 0.98);
     color: #fff;
     transition: all 0.3s;
 }

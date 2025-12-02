@@ -18,27 +18,32 @@
 
 html {
   font-size: 14px; /* decreased base font size by ~2px (from 16px to 14px) */
-}
-
-html {
   height: 100%;
 }
 
 body,
 html {
   color: #222222; /* default text color for legibility on white background */
+  margin: 0;
+  padding: 0;
 }
 
 body {
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.93)),
-    url('https://images.unsplash.com/photo-1764046155497-ad7e50737ffa?w=1200&h=600&fit=crop');
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.92) 100%),
+    url('https://images.unsplash.com/photo-1764046155497-ad7e50737ffa?w=1400&q=80');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #ffffff;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  background: transparent;
 }
 
 .form-group{

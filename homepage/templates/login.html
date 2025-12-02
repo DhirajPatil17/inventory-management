@@ -30,10 +30,10 @@
 
 <div class="row d-flex justify-content-center">
     <div class="col-md-6">
-        {% if user.is_authenticated %}
+            {% if user.is_authenticated %}
             
             <br><br>
-            <h2 class="align-middle">You are already logged in, {{ request.user.username }}!</h2>
+            <h2 class="align-middle">You are already logged in, {% if request.user.get_full_name %}{{ request.user.get_full_name }}{% else %}{{ request.user.username }}{% endif %}!</h2>
             <div class="border-top pt-3 align-middle"> <br>
                 <a class="btn ghost-blue" href="{% url 'home' %}">Go back home</a> <br><br>
                 <a class="btn ghost-red" href="{% url 'logout' %}">Log Out</a>
@@ -52,6 +52,7 @@
                         <div class="align-middle"> 
                             <button class="ghost-pink" type="submit">Log In</button>         
                             {# <button class="ml-2 ghost-red">Exit</button> #}
+                            <a class="btn btn-outline-light ml-2" href="{% url 'register' %}">Register</a>
                         </div>
                     </div>
                 </form>
