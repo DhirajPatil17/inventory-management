@@ -137,32 +137,32 @@ html { width: 100%; height:100%; overflow:hidden; }
 }
 
 .textinput{
-  background-color: #4F102B;
+  background-color: #ffffff;
   color: white;
 }
 
 .textinput:disabled{
-  background-color: rgb(158, 27, 84);
+  background-color: rgb(105, 99, 102);
   color: white;
 }
 
 .putprice {
-  background-color: #9e1b54 !important;
+  background-color: #7b7779 !important;
   color: white;
 }
 
 .emailinput{
-  background-color: #4F102B;
+  background-color: #a49da0;
   color: white;
 }
 
 .emailinput.focus{
-  background-color: #4F102B;
+  background-color: #9e989b;
   color: white;
 }
 
 .textinput:focus{
-  background-color:#4F102B;
+  background-color:#908c8e;
   color: white;
 }
 

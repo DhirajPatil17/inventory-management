@@ -17,7 +17,7 @@
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: rgba(79, 16, 43, 0.98);
+    background: rgba(80, 76, 78, 0.98);
     color: #fff;
     transition: all 0.3s;
 }
@@ -28,7 +28,7 @@
 
 .sidebar-header {
     padding: 20px;
-    background: #4F102B;
+    background: #4a353e;
 }
 
 .sidebar-components {
